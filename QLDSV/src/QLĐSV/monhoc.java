@@ -1,17 +1,18 @@
-package OOP-CK.QLDSV.src;
+package QLĐSV;
 
 import java.util.Scanner;
 
-public class monhoc {
+public class monhoc extends sinhvien{
     private String tenMH; // Tên môn học
     private int soTinChi; // Số tín chỉ của môn học
     private float diem; // Điểm của sinh viên trong môn học
 
     // Hàm khởi tạo (constructor)
     public monhoc(String tenMH, int soTinChi) {
-            this.tenMH = tenMH;
-            this.soTinChi = soTinChi;
-            this.diem = 0;
+        super(tenMH, tenMH);
+        this.tenMH = tenMH;
+        this.soTinChi = soTinChi;
+        this.diem = 0;
     }
 
     // Các phương thức getter và setter cho các thuộc tính của môn học

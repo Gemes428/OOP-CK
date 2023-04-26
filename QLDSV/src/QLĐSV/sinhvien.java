@@ -1,4 +1,4 @@
-package OOP-CK.QLDSV.src;
+package QLĐSV;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ public class sinhvien {
     private String maSV; // Mã sinh viên
     private String ten; // Tên sinh viên
     private float diemTB; // Điểm trung bình của sinh viên
-    private List<monhoc> dsmh; // Danh sách các môn học của sinh viên
     private int namSinh; // Năm sinh của sinh viên
     private String gioiTinh; // Giới tính của sinh viên
+    private List<monhoc> dsmh; // Danh sách các môn học của sinh viên
 
     // Constructor
     public sinhvien(String maSV, String ten) {
@@ -44,11 +44,27 @@ public class sinhvien {
         this.diemTB = diemTB;
     }
 
-    public List<monhoc> getDsMonHoc() {
-        return dsmh;
+    public int getNamSinh() {
+        return this.namSinh;
     }
 
-    public void setDsMonHoc(List<monhoc> dsmh) {
+    public void setNamSinh(int namSinh) {
+        this.namSinh = namSinh;
+    }
+
+    public String getGioiTinh() {
+        return this.gioiTinh;
+    }
+
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
+    public List<monhoc> getDsmh() {
+        return this.dsmh;
+    }
+
+    public void setDsmh(List<monhoc> dsmh) {
         this.dsmh = dsmh;
     }
 
@@ -92,6 +108,13 @@ public class sinhvien {
         System.out.println("Ho ten: " + this.ten);
         System.out.println("Nam sinh: " + this.namSinh);
         System.out.println("Gioi tinh: " + this.gioiTinh);
+    }
+
+
+    @Override
+    public String toString() {
+        return "{" + getMaSV() + "\t" + getTen() + "\t" + getDiemTB() + "\t" + getNamSinh() + "\t" + getGioiTinh() + "\t" + getDsmh() + "\t" +
+            "}";
     }
 
 }
