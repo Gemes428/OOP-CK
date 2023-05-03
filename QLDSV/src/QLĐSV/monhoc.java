@@ -2,7 +2,7 @@ package QLĐSV;
 
 import java.util.Scanner;
 
-public class monhoc extends sinhvien{
+public class monhoc {
     private String tenMH; // Tên môn học
     private int soTinChi; // Số tín chỉ của môn học
     private float diem; // Điểm của sinh viên trong môn học
