@@ -1,7 +1,6 @@
 package QLĐSV;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -58,10 +57,6 @@ public class QLDSV {
         }
     }
     private void menu(int choice){
-        
-        Scanner sc = new Scanner(System.in);
-        
-        sinhvien sv = new sinhvien(null, null);
         while (true) {
             System.out.println("===== Quan ly diem sinh vien =====");
             System.out.println("1. Them sinh vien");
@@ -71,12 +66,11 @@ public class QLDSV {
             System.out.println("0. Thoat chuong trinh");
             System.out.println("=================================");
 
-            System.out.print("Nhap lua chon cua ban: ");
-            choice = sc.nextInt();
+            choice = input.inputInt("Nhap lua chon cua ban: ");
             
             switch (choice) {
                 case 1:
-                    sv.nhapsv();
+                    sinhvien sv = sinhvien.nhapsv();
                     addsv(sv);
                     break;
                 case 2:

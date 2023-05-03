@@ -1,8 +1,6 @@
 package QLĐSV;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class sinhvien extends person{
     private String maSV; // Mã sinh viên
@@ -10,10 +8,16 @@ public class sinhvien extends person{
     private List<monhoc> dsmh; // Danh sách các môn học của sinh viên
 
     // Constructor
-    public sinhvien(String maSV, String ten) {
-        this.maSV = maSV;
-        this.dsmh = new ArrayList<>();
+
+    public sinhvien() {
     }
+
+    public sinhvien(String maSV, String fullname, String address, float diemTB, List<monhoc> dsmh) {
+        super(fullname, address);
+        this.maSV = maSV;
+        this.diemTB = diemTB;
+        this.dsmh = dsmh;
+    }    
 
     // Các phương thức getter và setter cho các thuộc tính của sinh viên
     public String getMaSV() {
@@ -61,10 +65,12 @@ public class sinhvien extends person{
     }
 
     // Hàm nhập thông tin sinh viên từ bàn phím
-    public void nhapsv() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap ma sinh vien: ");
-        this.maSV = sc.nextLine();
+    public static sinhvien nhapsv() {
+        String masv = input.inputStr("Nhap masv: ");
+        String fullname = input.inputStr("Nhap full name: ");
+        String address = input.inputStr("Nhap dia chi: ");
+        float diemtb = input.inputFloat("Nhap diem tb: ");
+        return new sinhvien(masv, fullname, address, diemtb, null);
     }
 
     // Hàm xuất thông tin sinh viên ra màn hình
