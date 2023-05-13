@@ -1,4 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package qldsv;
 
+/**
+ *
+ * @author admin
+ */
 import java.util.Scanner;
 
 public class diem {
@@ -42,4 +51,5 @@ public class diem {
         System.out.println("Diem: " + diem);
         System.out.println("Diem trung binh: " + diemtb);
     }
+
 }
