@@ -1,4 +1,3 @@
-package QLĐSV;
 
 import java.util.Scanner;
 
@@ -6,8 +5,10 @@ public class input {
     public static Scanner sc = new Scanner(System.in);
     public static int inputInt(String content) {
         int result = 0;
+        String res;
         System.out.println(content);
         result = sc.nextInt();
+        res = sc.nextLine();
         return result;
     }
 
@@ -21,7 +22,6 @@ public class input {
     public static String inputStr(String content) {
         String result = "";
         System.out.println(content);
-        result = sc.nextLine();
         result = sc.nextLine();
         return result;
     }

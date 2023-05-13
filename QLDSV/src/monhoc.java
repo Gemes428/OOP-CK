@@ -1,4 +1,3 @@
-package QLĐSV;
 
 import java.util.Scanner;
 
@@ -6,14 +5,13 @@ public class monhoc {
     private String mamh;
     private String tenMH; // Tên môn học
     private int soTinChi; // Số tín chỉ của môn học
-    private float diem; // Điểm của sinh viên trong môn học
+    private float Diem;
 
     // Hàm khởi tạo (constructor)
-    public monhoc(String mamh, String tenMH, int soTinChi, float diem) {
+    public monhoc(String mamh, String tenMH, int soTinChi) {
         this.mamh = mamh;
         this.tenMH = tenMH;
         this.soTinChi = soTinChi;
-        this.diem = diem;
     }
 
     // Các phương thức getter và setter cho các thuộc tính của môn học
@@ -26,7 +24,6 @@ public class monhoc {
         this.mamh = mamh;
     }
 
-    
     public String getTenMH() {
         return tenMH;
     }
@@ -44,20 +41,28 @@ public class monhoc {
     }
 
     public float getDiem() {
-        return diem;
+        return this.Diem;
     }
 
-    public void setDiem(float diem) {
-        this.diem = diem;
+    public void setDiem(float Diem) {
+        this.Diem = Diem;
     }
 
-    public void nhapDiem() {
+    public void nhapmh() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap diem " + this.tenMH + ": ");
-        this.diem = sc.nextFloat();
+        System.out.print("Nhap mamh: ");
+        mamh = sc.nextLine();
+        System.out.print("Nhap tenmh: ");
+        tenMH = sc.nextLine();
+        System.out.print("Nhap so tin chi: ");
+        soTinChi = sc.nextInt();
+        System.out.print("Nhap diem: ");
+        Diem = sc.nextFloat();
     }
- 
-    public void xuatThongTin() {
-        System.out.println(this.tenMH + " (" + this.soTinChi + " tin chi): " + this.diem);
+
+    public void xuatmh() {
+        System.out.println("MaMH: " + mamh);
+        System.out.println("Ten mon hoc: " + tenMH);
+        System.out.println("So tin chi: " + soTinChi);
     }
 }

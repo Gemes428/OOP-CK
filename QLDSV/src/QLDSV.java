@@ -1,4 +1,3 @@
-package QLĐSV;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,9 +26,9 @@ public class QLDSV {
 
     public void hienThilistsv() {
         for (sinhvien sv : dssv) {
-            System.out.println("Nhap masv: " + sv.getMaSV());
-            System.out.println("Nhap tenSV: " + sv.getFullname());
-            System.out.println("Nhap dtb: " + sv.getDiemTB());
+            System.out.println("Masv: " + sv.getMaSV());
+            System.out.println("TenSV: " + sv.getFullname());
+            System.out.println("Dtb: " + sv.getDiemTB());
             System.out.println("-------------------------");
         }
     }

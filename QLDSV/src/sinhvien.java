@@ -1,8 +1,7 @@
-package QLĐSV;
 
 import java.util.List;
 
-public class sinhvien extends person{
+public class sinhvien extends person {
     private String maSV; // Mã sinh viên
     private float diemTB; // Điểm trung bình của sinh viên
     private List<monhoc> dsmh; // Danh sách các môn học của sinh viên
@@ -17,7 +16,7 @@ public class sinhvien extends person{
         this.maSV = maSV;
         this.diemTB = diemTB;
         this.dsmh = dsmh;
-    }    
+    }
 
     // Các phương thức getter và setter cho các thuộc tính của sinh viên
     public String getMaSV() {
@@ -75,9 +74,11 @@ public class sinhvien extends person{
 
     // Hàm xuất thông tin sinh viên ra màn hình
     public void xuatsv() {
-        System.out.println("Ma sinh vien: " + this.maSV);
+        System.out.println("Ma sinh vien: " + getMaSV());
+        System.out.println("Ten sinh vien: " + getFullname());
+        System.out.println("Dia chi: " + getAddress());
+        System.out.println("Diem tb: " + getDiemTB());
     }
-
 
     @Override
     public String toString() {

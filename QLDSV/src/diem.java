@@ -1,4 +1,3 @@
-package QLĐSV;
 
 import java.util.Scanner;
 
