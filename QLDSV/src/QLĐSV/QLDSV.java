@@ -3,42 +3,39 @@ package QLĐSV;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class QLDSV {
-    private ArrayList<sinhvien> listsv = new ArrayList<>();
- 
-    // Thêm sinh viên vào danh sách
-    private void addsv(sinhvien sv) {
-        listsv.add(sv);
+    private List<sinhvien> dssv;
+
+    public QLDSV() {
+        dssv = new ArrayList<>();
     }
- 
-    // Tìm kiếm sinh viên theo mã sinh viên
-    private void findsv(String maSV) {
-        boolean found = false;
-        for (sinhvien sv : listsv) {
+
+    public void addSV(sinhvien sv) {
+        dssv.add(sv);
+    }
+
+    public sinhvien findSV(String maSV) {
+        for (sinhvien sv : dssv) {
             if (sv.getMaSV().equals(maSV)) {
-                System.out.println("Sinh vien co ma SV " + maSV + ":");
-                sv.xuatsv();
-                found = true;
-                break;
+                return sv;
             }
         }
-        if (!found) {
-            System.out.println("Khong tim thay sinh vien co ma SV " + maSV);
+        return null;
+    }
+
+    public void hienThilistsv() {
+        for (sinhvien sv : dssv) {
+            System.out.println("Nhap masv: " + sv.getMaSV());
+            System.out.println("Nhap tenSV: " + sv.getFullname());
+            System.out.println("Nhap dtb: " + sv.getDiemTB());
+            System.out.println("-------------------------");
         }
     }
- 
-    // Hiển thị danh sách sinh viên
-    private void hienThilistsv() {
-        System.out.println("Danh sach sinh vien:");
-        for (sinhvien sv : listsv) {
-            sv.xuatsv();
-        }
-    }
- 
-    // Sắp xếp sinh viên theo điểm
-    private void sortsvtheodiem() {
-        Collections.sort(listsv, new Comparator<sinhvien>() {
+
+    public void sapXepSVTheoDiem() {
+        Collections.sort(dssv, new Comparator<sinhvien>() {
             @Override
             public int compare(sinhvien sv1, sinhvien sv2) {
                 if (sv1.getDiemTB() > sv2.getDiemTB()) {
@@ -50,13 +47,9 @@ public class QLDSV {
                 }
             }
         });
- 
-        System.out.println("Danh sach sinh vien theo diem:");
-        for (sinhvien sv : listsv) {
-            sv.xuatsv();
-        }
     }
-    private void menu(int choice){
+
+    public void menu(int choice) {
         while (true) {
             System.out.println("===== Quan ly diem sinh vien =====");
             System.out.println("1. Them sinh vien");
@@ -71,16 +64,16 @@ public class QLDSV {
             switch (choice) {
                 case 1:
                     sinhvien sv = sinhvien.nhapsv();
-                    addsv(sv);
+                    dssv.add(sv);
                     break;
                 case 2:
                     hienThilistsv();
                     break;
                 case 3:
-                    findsv("Nhap masv: ");
+                    findSV("Nhap masv: ");
                     break;
                 case 4:
-                    sortsvtheodiem();
+                    sapXepSVTheoDiem();
                     break;
                 case 0:
                     System.out.println("Chuong trinh da thoat.");

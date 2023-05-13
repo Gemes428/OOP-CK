@@ -3,19 +3,30 @@ package QLĐSV;
 import java.util.Scanner;
 
 public class monhoc {
+    private String mamh;
     private String tenMH; // Tên môn học
     private int soTinChi; // Số tín chỉ của môn học
     private float diem; // Điểm của sinh viên trong môn học
 
     // Hàm khởi tạo (constructor)
-    public monhoc(String tenMH, int soTinChi) {
-        super(tenMH, tenMH);
+    public monhoc(String mamh, String tenMH, int soTinChi, float diem) {
+        this.mamh = mamh;
         this.tenMH = tenMH;
         this.soTinChi = soTinChi;
-        this.diem = 0;
+        this.diem = diem;
     }
 
     // Các phương thức getter và setter cho các thuộc tính của môn học
+
+    public String getMamh() {
+        return this.mamh;
+    }
+
+    public void setMamh(String mamh) {
+        this.mamh = mamh;
+    }
+
+    
     public String getTenMH() {
         return tenMH;
     }

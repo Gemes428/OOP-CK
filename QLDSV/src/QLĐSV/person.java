@@ -10,6 +10,7 @@ package QLĐSV;
  */
 public class person {
     private String fullname, address;
+    private char studentGender;
 
     public person() {
     }
@@ -17,6 +18,14 @@ public class person {
     public person(String fullname, String address) {
         this.fullname = fullname;
         this.address = address;
+    }
+
+    public char getStudentGender() {
+        return this.studentGender;
+    }
+
+    public void setStudentGender(char studentGender) {
+        this.studentGender = studentGender;
     }
 
     public String getFullname() {
