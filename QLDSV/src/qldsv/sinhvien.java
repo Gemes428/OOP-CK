@@ -13,18 +13,16 @@ import java.util.List;
 public class sinhvien extends person {
     private String maSV; // Mã sinh viên
     private float diemTB; // Điểm trung bình của sinh viên
-    private List<monhoc> dsmh; // Danh sách các môn học của sinh viên
 
     // Constructor
 
     public sinhvien() {
     }
 
-    public sinhvien(String maSV, String fullname, String address, float diemTB, List<monhoc> dsmh) {
+    public sinhvien(String maSV, String fullname, String address, float diemTB) {
         super(fullname, address);
         this.maSV = maSV;
         this.diemTB = diemTB;
-        this.dsmh = dsmh;
     }
 
     // Các phương thức getter và setter cho các thuộc tính của sinh viên
@@ -43,32 +41,18 @@ public class sinhvien extends person {
     public void setDiemTB(float diemTB) {
         this.diemTB = diemTB;
     }
-
-    public List<monhoc> getDsmh() {
-        return this.dsmh;
-    }
-
-    public void setDsmh(List<monhoc> dsmh) {
-        this.dsmh = dsmh;
-    }
-
-    // Thêm một môn học cho sinh viên
-    public void themMonHoc(monhoc monHoc) {
-        dsmh.add(monHoc);
-    }
-
-    // Tính điểm trung bình của sinh viên dựa trên điểm các môn học đã đăng ký
-    public void tinhDiemTB() {
-        float tongDiem = 0;
-        int tongSoTinChi = 0;
-        for (monhoc mh : dsmh) {
-            tongDiem += mh.getDiem() * mh.getSoTinChi();
-            tongSoTinChi += mh.getSoTinChi();
-        }
-        if (tongSoTinChi > 0) {
-            this.diemTB = tongDiem / tongSoTinChi;
+    
+    public void xepLoaiHocTap() {
+        if (diemTB >= 9) {
+            System.out.println("Xep loai: Xuat sac");
+        } else if (diemTB >= 8.0) {
+            System.out.println("Xep loai: Gioi");
+        } else if (diemTB >= 7) {
+            System.out.println("Xep loai: Kha");
+        } else if (diemTB >= 5.0) {
+            System.out.println("Xep loai: Trung binh");
         } else {
-            this.diemTB = 0;
+            System.out.println("Xep loai: Yeu");
         }
     }
 
@@ -77,8 +61,8 @@ public class sinhvien extends person {
         String masv = input.inputStr("Nhap masv: ");
         String fullname = input.inputStr("Nhap full name: ");
         String address = input.inputStr("Nhap dia chi: ");
-        float diemtb = input.inputFloat("Nhap diem tb: ");
-        return new sinhvien(masv, fullname, address, diemtb, null);
+        float diemTB = input.inputFloat("Nhap diem tb: ");
+        return new sinhvien(masv, fullname, address, diemTB);
     }
 
     // Hàm xuất thông tin sinh viên ra màn hình
@@ -91,7 +75,7 @@ public class sinhvien extends person {
 
     @Override
     public String toString() {
-        return "{" + getMaSV() + "\t" + getDiemTB() + "\t" + getDsmh() + "\t" + "}";
+        return "sinhvien{" + getMaSV() + "\t" + getFullname() + "\t" + getAddress()+ "\t" + getDiemTB() + '}';
     }
 
 }
