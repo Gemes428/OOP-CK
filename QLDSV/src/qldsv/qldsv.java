@@ -60,48 +60,98 @@ public class qldsv {
         return null;
     }
 
-    public void hienThilistsv() {
+    public void updatesv() {
+
+        System.out.println("Nhap ma so sv can sua: ");
+        String maSV = sc.nextLine();
+
         for (sinhvien sv : dssv) {
-            System.out.println("Masv: " + sv.getMaSV());
-            System.out.println("TenSV: " + sv.getFullname());
-            System.out.println("Dtb: " + sv.getDiemTB());
-            System.out.println("-------------------------");
+            if (sv.getMaSV().equals(maSV)) {
+                // Sửa thông tin sinh viên
+                
+                String newname = input.inputStr("Nhap full name: ");
+                sv.setFullname(newname);
+                String newaddress = input.inputStr("Nhap dia chi: ");
+                sv.setAddress(newaddress);
+                float newdiemLT = input.inputFloat("Nhap diem lt: ");
+                sv.setDiemLT(newdiemLT);
+                float newdiemTH = input.inputFloat("Nhap diem th: ");
+                sv.setDiemTH(newdiemTH);
+                
+                System.out.println("Successfully.");
+                return;
+            }
         }
+        System.out.println("Không tìm thấy sinh viên có mã số " + maSV + ".");
+    }
+
+    public void deletesv() {
+        System.out.println("Nhap ma so sv can xoa: ");
+        String masv = sc.nextLine();
+    
+        for (int i = 0; i < dssv.size(); i++) {
+            if (dssv.get(i).getMaSV().equals(masv)) {
+                dssv.remove(i);
+                System.out.println("Sinh vien co ma so " + masv + " da duoc xoa khoi ds.");
+                return;
+            }
+        }
+        System.out.println("Khong tìm sv co masv nay " + masv + ".");
+    }    
+
+    public void hienThilistsv() {
+        System.out.printf("%105s", "=================================================================================================");
+        System.out.println("\n");
+        System.out.printf("%20s  %20s  %20s  %15s  %10s  %10s", "Ma sinh vien", "Ten sinh vien", "Dia chi", "Diem LT", "Diem TH", "Diem TB");
+        for (sinhvien sv : dssv) {
+            System.out.println("\n");
+            System.out.printf("%17s  %29s  %12s  %18f  %10f  %10f", sv.getMaSV(), sv.getFullname(), sv.getAddress(), sv.getDiemLT(), sv.getDiemTH(), sv.diemTB());
+        }
+        System.out.println("\n");
+        System.out.printf("%105s", "==================================================================================================");
+        System.out.println("\n");
     }
 
     public void sapXepSVTheoDiem() {
         Collections.sort(dssv, new Comparator<sinhvien>() {
             @Override
             public int compare(sinhvien sv1, sinhvien sv2) {
-                if (sv1.getDiemTB() > sv2.getDiemTB()) {
+                if (sv1.diemTB() > sv2.diemTB()) {
                     return -1;
-                } else if (sv1.getDiemTB() < sv2.getDiemTB()) {
+                } else if (sv1.diemTB() < sv2.diemTB()) {
                     return 1;
                 } else {
                     return 0;
                 }
             }
         });
+        hienThilistsv();
     }
     
     public void loai() {
+        System.out.printf("%105s", "=======================================================================================================================");
+        System.out.println("\n");
+        System.out.printf("%20s  %20s  %20s  %15s  %10s  %10s  %12s", "Ma sinh vien", "Ten sinh vien", "Dia chi", "Diem LT", "Diem TH", "Diem TB", "Xep Loai");
         for (sinhvien sv : dssv) {
-            System.out.println("Masv: " + sv.getMaSV());
-            System.out.println("TenSV: " + sv.getFullname());
-            System.out.println("Dtb: " + sv.getDiemTB());
+            System.out.println("\n");
+            System.out.printf("%17s  %29s  %12s  %18f  %10f  %10f", sv.getMaSV(), sv.getFullname(), sv.getAddress(), sv.getDiemLT(), sv.getDiemTH(), sv.diemTB(), sv);
             sv.xepLoaiHocTap();
-            System.out.println("-------------------------");
         }
+        System.out.println("\n");
+        System.out.printf("%105s", "======================================================================================================================");
+        System.out.println("\n");
     }
 
     public void menu(int choice) {
         while (true) {
             System.out.println("===== Quan ly diem sinh vien =====");
-            System.out.println("1. Them sinh vien");
-            System.out.println("2. Hien thi danh sach sinh vien");
-            System.out.println("3. Tim kiem sinh vien theo ma");
-            System.out.println("4. Sap xep sinh vien theo diem"
-                    + "\n5. Xep loai hoc cua sinh vien.");
+            System.out.println("1. Them sinh vien"
+                    + "\n2. Sua thong tin sinh vien"
+                    + "\n3. Xoa sinh vien");
+            System.out.println("4. Hien thi danh sach sinh vien");
+            System.out.println("5. Tim kiem sinh vien theo ma");
+            System.out.println("6. Sap xep sinh vien theo diem"
+                    + "\n7. Xep loai hoc cua sinh vien.");
             System.out.println("0. Thoat chuong trinh");
             System.out.println("=================================");
 
@@ -112,16 +162,21 @@ public class qldsv {
                     inputsinhvienInformation();
                     break;
                 case 2:
-                    hienThilistsv();
+                    updatesv();
                     break;
                 case 3:
-                    findSV();
+                    deletesv();
                     break;
                 case 4:
-                    sapXepSVTheoDiem();
                     hienThilistsv();
                     break;
                 case 5:
+                    findSV();
+                    break;
+                case 6:
+                    sapXepSVTheoDiem();
+                    break;
+                case 7:
                     sapXepSVTheoDiem();
                     loai();
                     break;
