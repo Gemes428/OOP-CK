@@ -51,22 +51,21 @@ public class sinhvien extends person {
         this.diemTH = diemTH;
     }
 
-    public float diemTB(){
-        return (diemTH + diemLT)/2;
+    public float diemTB() {
+        return (diemTH + diemLT) / 2;
     }
-    
-    
+
     public void xepLoaiHocTap() {
         if (diemTB() >= 9) {
-            System.out.printf("%12.5s", "Xuat sac");
+            System.out.printf("%10s", "Xuat sac");
         } else if (diemTB() >= 8.0) {
-            System.out.printf("%11s", "Gioi");
+            System.out.printf("%7s", "Gioi");
         } else if (diemTB() >= 7) {
-            System.out.printf("%10.5s", "Kha");
+            System.out.printf("%7s", "Kha");
         } else if (diemTB() >= 5.0) {
             System.out.printf("%5s", "Trung binh");
         } else {
-            System.out.printf("%10.5s", "Yeu");
+            System.out.printf("%10s", "Yeu");
         }
     }
 
@@ -82,7 +81,8 @@ public class sinhvien extends person {
 
     @Override
     public String toString() {
-        return "sinhvien{" + getMaSV() + "\t" + getFullname() + "\t" + getAddress() + "\t" + getDiemLT() + "\t" + getDiemTH() + "\t" + diemTB() + '}';
+        return "sinhvien{" + getMaSV() + "\t" + getFullname() + "\t" + getAddress() + "\t" + getDiemLT() + "\t"
+                + getDiemTH() + "\t" + diemTB() + '}';
     }
 
 }

@@ -23,8 +23,10 @@ public class input {
 
     public static float inputFloat(String content) {
         float result = 0;
+        String res;
         System.out.println(content);
         result = sc.nextFloat();
+        res = sc.nextLine();
         return result;
     }
     

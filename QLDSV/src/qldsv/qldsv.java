@@ -134,19 +134,19 @@ public class qldsv {
 
     public void loai() {
         System.out.printf("%105s",
-                "=======================================================================================================================");
+                "===============================================================================================================");
         System.out.println("\n");
-        System.out.printf("%20s  %20s  %20s  %15s  %10s  %10s  %12s", "Ma sinh vien", "Ten sinh vien", "Dia chi",
+        System.out.printf("%18s  %18s  %18s  %13s  %10s  %10s  %10s", "Ma sinh vien", "Ten sinh vien", "Dia chi",
                 "Diem LT", "Diem TH", "Diem TB", "Xep Loai");
         for (sinhvien sv : dssv) {
             System.out.println("\n");
-            System.out.printf("%17s  %29s  %12s  %18f  %10f  %10f", sv.getMaSV(), sv.getFullname(), sv.getAddress(),
-                    sv.getDiemLT(), sv.getDiemTH(), sv.diemTB(), sv);
+            System.out.printf("%15s  %27s  %10s  %16f  %10f  %10f", sv.getMaSV(), sv.getFullname(), sv.getAddress(),
+                    sv.getDiemLT(), sv.getDiemTH(), sv.diemTB());
             sv.xepLoaiHocTap();
         }
         System.out.println("\n");
         System.out.printf("%105s",
-                "======================================================================================================================");
+                "==============================================================================================================");
         System.out.println("\n");
     }
 
@@ -159,9 +159,9 @@ public class qldsv {
             System.out.println("4. Hien thi danh sach sinh vien");
             System.out.println("5. Tim kiem sinh vien theo ma");
             System.out.println("6. Sap xep sinh vien theo diem"
-                    + "\n7. Xep loai hoc tap cua sinh vien.");
+                    + "\n7. Xep loai hoc cua sinh vien.");
             System.out.println("0. Thoat chuong trinh");
-            System.out.println("=================================");
+            System.out.println("==================================");
 
             choice = input.inputInt("Nhap lua chon cua ban: ");
 
@@ -185,7 +185,6 @@ public class qldsv {
                     sapXepSVTheoDiem();
                     break;
                 case 7:
-                    sapXepSVTheoDiem();
                     loai();
                     break;
                 case 0:
