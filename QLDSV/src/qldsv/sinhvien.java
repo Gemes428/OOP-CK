@@ -57,15 +57,15 @@ public class sinhvien extends person {
 
     public void xepLoaiHocTap() {
         if (diemTB() >= 9) {
-            System.out.printf("%10s", "Xuat sac");
+            System.out.printf("%11s", "Xuat sac");
         } else if (diemTB() >= 8.0) {
-            System.out.printf("%7s", "Gioi");
+            System.out.printf("%8s", "Gioi");
         } else if (diemTB() >= 7) {
-            System.out.printf("%7s", "Kha");
+            System.out.printf("%8s", "Kha");
         } else if (diemTB() >= 5.0) {
             System.out.printf("%5s", "Trung binh");
         } else {
-            System.out.printf("%10s", "Yeu");
+            System.out.printf("%8s", "Yeu");
         }
     }
 

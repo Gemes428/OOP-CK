@@ -134,19 +134,19 @@ public class qldsv {
 
     public void loai() {
         System.out.printf("%105s",
-                "===============================================================================================================");
+                "=========================================================================================================");
         System.out.println("\n");
-        System.out.printf("%18s  %18s  %18s  %13s  %10s  %10s  %10s", "Ma sinh vien", "Ten sinh vien", "Dia chi",
+        System.out.printf("%10s  %15s  %18s  %13s  %10s  %10s  %10s", "Ma sinh vien", "Ten sinh vien", "Dia chi",
                 "Diem LT", "Diem TH", "Diem TB", "Xep Loai");
         for (sinhvien sv : dssv) {
             System.out.println("\n");
-            System.out.printf("%15s  %27s  %10s  %16f  %10f  %10f", sv.getMaSV(), sv.getFullname(), sv.getAddress(),
+            System.out.printf("%9s  %24s  %10s  %16f  %10f  %10f", sv.getMaSV(), sv.getFullname(), sv.getAddress(),
                     sv.getDiemLT(), sv.getDiemTH(), sv.diemTB());
             sv.xepLoaiHocTap();
         }
         System.out.println("\n");
         System.out.printf("%105s",
-                "==============================================================================================================");
+                "========================================================================================================");
         System.out.println("\n");
     }
 
