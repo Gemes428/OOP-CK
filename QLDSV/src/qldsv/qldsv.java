@@ -136,7 +136,7 @@ public class qldsv {
         System.out.printf("%105s",
                 "=========================================================================================================");
         System.out.println("\n");
-        System.out.printf("%10s  %15s  %18s  %13s  %10s  %10s  %10s", "Ma sinh vien", "Ten sinh vien", "Dia chi",
+        System.out.printf("%20s  %15s  %18s  %13s  %10s  %10s  %10s", "Ma sinh vien", "Ten sinh vien", "Dia chi",
                 "Diem LT", "Diem TH", "Diem TB", "Xep Loai");
         for (sinhvien sv : dssv) {
             System.out.println("\n");
